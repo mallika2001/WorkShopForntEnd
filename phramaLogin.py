@@ -1,5 +1,7 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import messagebox
+from tkinter import ttk, messagebox
 import subprocess
 
 class LoginApp:
@@ -9,7 +11,22 @@ class LoginApp:
         self.root.geometry("400x350")
 
         self.create_widgets()
+        
+    def apply_theme(root):
+        style = ttk.Style()
+        style.theme_use("clam")  # Use modern theme (clam, alt, default, classic)
+        
+        # Button Styling
+        style.configure("TButton", font=("Arial", 12), padding=6, background="#2E86C1", foreground="white")
+        
+        # Label Styling
+        style.configure("TLabel", font=("Arial", 12), padding=5)
+        
+        # Table (Treeview) Styling
+        style.configure("Treeview", font=("Arial", 11), rowheight=25)
+        style.configure("Treeview.Heading", font=("Arial", 12, "bold"))
 
+        root.configure(bg="#ECF0F1")  # Light background
     def create_widgets(self):
         tk.Label(self.root, text="Login", font=("Arial", 16)).pack(pady=10)
 
